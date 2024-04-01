@@ -16,8 +16,9 @@ export const ContentHeader = styled.View `
     padding: ${RFValue(20)}px;
 `;
 export const ViewButton = styled.View `
-
+    flex-direction: row;
 `;
+
 export const ContentBody = styled.View `
 
 `;
@@ -32,6 +33,7 @@ export const Title = styled.Text `
     font-family: ${theme.FONTS.POPPINSMEDIUM};
 `;
 export const Description = styled.Text`
+margin-bottom: ${RFValue(15)}px;
     margin-top:${RFValue(60)}px;
     font-size: ${RFValue(17)}px;
     font-family: ${theme.FONTS.POPPINSLIGHT};

@@ -1,7 +1,8 @@
 import {View, Text, StyleSheet} from "react-native";
-import Apploading from "expo-app-loading";
 import {ThemeProvider} from 'styled-components/native';
 import { StatusBar } from "expo-status-bar";
+import SplashScreen from 'expo-splash-screen';
+import { useCallback, useEffect, useState } from 'react'
 import {
     useFonts,
     Poppins_300Light,
@@ -16,33 +17,44 @@ import COLORS from "./src/styles/theme";
 
 import { Login } from "src/screens/Login/login";
 
-export default function App(){
+export default function App() {
+    const [appReady, setAppReady] = useState(false)
 
-    const [fontsLoaded] = useFonts ({
+    useEffect(() => {
+      (async () => {
+        try {
+          await SplashScreen
+        } catch (e) {
+          console.warn(e);
+        } finally {
+          setAppReady(true);
+        }
+      })()
+    }, [])
+
+    let [fontsLoaded] = useFonts({
         Poppins_300Light,
         Poppins_400Regular,
         Poppins_500Medium,
         Poppins_700Bold,
         Poppins_800ExtraBold,
-        DMSans_400Regular,
-        DMSerifDisplay_400Regular
+        DMSerifDisplay_400Regular,
+        DMSans_400Regular
     });
 
-    if(!fontsLoaded) {
-        return <Apploading/>
-    };
+    if (!fontsLoaded || !appReady) {
+      return null
+    }
 
-    return(
+    return (
         <ThemeProvider theme={COLORS}>
-
             <StatusBar
                 style="dark"
                 translucent
                 backgroundColor="transparent"
             />
-
-            <View >
-                <Login/>
+            <View>
+                <Login />
             </View>
         </ThemeProvider>
     );

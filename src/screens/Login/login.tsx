@@ -1,7 +1,8 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import {ButtonGoogle,ButtonFacebook } from '../../components/ButtonSocial/buttonsSocial';
 import {
     Container,
     ContentHeader,
@@ -20,7 +21,12 @@ const Login = () => {
             <ContentHeader>
                 <Title>Seja bem vindo(a) {'\n'} a Carteira app </Title>
                 <Description>Entrar com Redes Sociais</Description>
-                <ViewButton></ViewButton>
+                <GestureHandlerRootView>
+                    <ViewButton>
+                        <ButtonGoogle title='Google'/>
+                        <ButtonFacebook title='Facebook'/>
+                    </ViewButton>
+                </GestureHandlerRootView>
             </ContentHeader>
 
             <ContentBody>
