@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import theme from "../../styles/theme";
 import { RFValue } from 'react-native-responsive-fontsize';
+import { Fontisto } from '@expo/vector-icons';
 
 export const Button = styled.View`
     align-items: center;
@@ -12,10 +13,10 @@ export const Button = styled.View`
     margin-left: ${RFValue(10)}px;
     border-radius: 10px;
     box-shadow: 1px 3px 3px rgba(0,0,0,0.2);
-    background-color: ${theme.COLORS.GRAY5};
+    background-color: ${theme.COLORS.GRAY6};
 `;
 
-export const ButtonFace = styled.View`
+export const ButtonFacebook = styled.View`
     align-items: center;
     flex-direction: row;
     justify-content: center;
@@ -25,20 +26,28 @@ export const ButtonFace = styled.View`
     margin-left: ${RFValue(10)}px;
     border-radius: 10px;
     box-shadow: 1px 3px 3px rgba(0,0,0,0.2);
-    background-color: ${theme.COLORS.GRAY5};
+    background-color: ${theme.COLORS.BLUE4};
 `;
 
-export const IconeGoogle = styled.Image`
-    width: ${RFValue(25)}px;
-    height: ${RFValue(25)}px;
+export const IconeButtonFacebook = styled(Fontisto)`
+    font-size: ${RFValue(30)}px;
+    color: ${theme.COLORS.WHITE}
 `;
 
-export const IconeFacebook = styled.Image`
-    width: ${RFValue(25)}px;
-    height: ${RFValue(25)}px;
+export const IconeButtonGoogle = styled(Fontisto)`
+    font-size: ${RFValue(30)}px;
+    color: ${theme.COLORS.RED}
 `;
 
 export const Title = styled.Text`
+    color: ${theme.COLORS.BLACK};
+    font-size: ${RFValue(15)}px;
+    font-family: ${theme.FONTS.POPPINSLIGHT};
+    margin-left: ${RFValue(10)}px;
+`;
+
+export const TitleFacebook = styled.Text`
+    color: ${theme.COLORS.WHITE};
     font-size: ${RFValue(15)}px;
     font-family: ${theme.FONTS.POPPINSLIGHT};
     margin-left: ${RFValue(10)}px;

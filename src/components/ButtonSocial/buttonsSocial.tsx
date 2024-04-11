@@ -1,25 +1,21 @@
-
-import { View, Text } from "react-native";
 import React from "react";
-import { Button, ButtonFace, IconeFacebook, IconeGoogle, Title } from "./style";
+import { Button, IconeButtonGoogle, Title, IconeButtonFacebook, ButtonFacebook, TitleFacebook } from "./style";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import PngGoogle from "../../assets/google.png";
-import PngFacebok from "../../assets/facebook.png";
 import {RectButtonProps} from "react-native-gesture-handler";
-
+import { Fontisto } from '@expo/vector-icons';
 
 //ESTENDEMOS AS PROPIEDADES NATIVA DO BOTÃO DO REACT E PASSAMOS PARA O NOSSO COMPONENTE QUE CRIAMOS
 interface Props extends RectButtonProps {
     title: string
+    IconName: React.ComponentProps<typeof Fontisto>["name"]
 }
 
-const ButtonGoogle: React.FC<Props> = ({title, ...rest}) => {
+const ButtonSocialGoogle: React.FC<Props> = ({title, IconName, ...rest}) => {
     return (
         <TouchableOpacity activeOpacity={0.7}>
             <Button {...rest}>
-                <IconeGoogle
-                source = {PngGoogle}
-                resizeMode = "contain"
+                <IconeButtonGoogle
+                name = {IconName}
                 />
                 <Title>{title}</Title>
             </Button>
@@ -27,18 +23,17 @@ const ButtonGoogle: React.FC<Props> = ({title, ...rest}) => {
     );
 };
 
-const ButtonFacebook: React.FC<Props> = ({title, ...rest}) => {
+const ButtonSocialFacebook: React.FC<Props> = ({title, IconName, ...rest}) => {
     return (
         <TouchableOpacity activeOpacity={0.7}>
-            <ButtonFace {...rest}>
-                <IconeFacebook
-                source = {PngFacebok}
-                resizeMode = "contain"
+            <ButtonFacebook {...rest}>
+                <IconeButtonFacebook
+                name = {IconName}
                 />
-                <Title>{title}</Title>
-            </ButtonFace>
+                <TitleFacebook>{title}</TitleFacebook>
+            </ButtonFacebook>
         </TouchableOpacity>
     );
 };
 
-export {ButtonGoogle, ButtonFacebook};
+export {ButtonSocialGoogle, ButtonSocialFacebook };
